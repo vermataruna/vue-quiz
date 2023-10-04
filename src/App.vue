@@ -1,47 +1,79 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="container">
+    <header>
+      <h1>Quiz(s)</h1>
+      <input type="text" placeholder="Search...">
+    </header>
+    <div class="options-container">
+      <div class="card">
+        <img src="" alt="">
+        <div class="card-text">
+          <h2>Laravel</h2>
+          <p>15 Questions</p>
+        </div>
+      </div>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
+<script setup>
+
+</script>
+
 <style scoped>
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 header {
-  line-height: 1.5;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+header h1 {
+  font-weight: bold;
+  margin-right: 30px;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+header input {
+  border: none;
+  background-color: rgb(221, 221, 221);
+  padding: 10px;
+  border-radius: 5px;
 }
+
+.option {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.card {
+    width: 310px;
+    overflow: hidden;
+    border-radius: 2%;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+    margin-bottom: 35px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .card img {
+    width: 100%;
+    height: 190px;
+    margin: 0
+  }
+
+  .card .card-text {
+    padding: 0 5px
+  }
+
+  .card .card-text h2 {
+    font-weight: bold;
+  }
+
 </style>
