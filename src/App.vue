@@ -5,11 +5,11 @@
       <input type="text" placeholder="Search...">
     </header>
     <div class="options-container">
-      <div class="card">
-        <img src="" alt="">
+      <div class="card" v-for="quiz in quizes" :key="quiz.id">
+        <img :src="quiz.img">
         <div class="card-text">
-          <h2>Laravel</h2>
-          <p>15 Questions</p>
+          <h2>{{ quiz.name }}</h2>
+          <p>{{ quiz.questions.length }}</p>
         </div>
       </div>
     </div>
@@ -17,6 +17,10 @@
 </template>
 
 <script setup>
+import quizData from '../src/data/quizes.json';
+import { ref } from 'vue';
+
+const quizes = ref(quizData);
 
 </script>
 
@@ -74,6 +78,12 @@ header input {
 
   .card .card-text h2 {
     font-weight: bold;
+  }
+
+  .options-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
   }
 
 </style>
