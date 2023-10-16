@@ -5,7 +5,12 @@
         </h1>
     </div>
     <div class="options-container">
-        <div class="option" v-for="option in question.options" :key="option.id">
+        <div 
+            v-for="option in question.options" 
+            :key="option.id"
+            class="option"
+            @click="emitSelectOption(option.isCorrect)"
+        >
             <p class="option-label">{{ option.label }}</p>
             <div class="option-value">
                 <p>{{ option.text }}</p>
@@ -15,9 +20,15 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
+
+const emit = defineEmits(['selectOption'])
 
 const {question} = defineProps(['question'])
+
+const emitSelectOption = (isCorrect) => {
+    emit("selectOption", isCorrect)
+}
 
 </script>
 
